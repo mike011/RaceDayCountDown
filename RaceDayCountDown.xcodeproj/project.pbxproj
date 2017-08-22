@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C21B5061F4673470035CFFD /* Races.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21B5051F4673470035CFFD /* Races.swift */; };
+		4C21B5281F49A5330035CFFD /* RaceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21B5271F49A5330035CFFD /* RaceViewCell.swift */; };
+		4C21B52A1F4B72C70035CFFD /* socks.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C21B5291F4B72C70035CFFD /* socks.jpeg */; };
 		4C22DD381F2D618E009C2BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22DD371F2D618E009C2BE1 /* AppDelegate.swift */; };
 		4C22DD3A1F2D618E009C2BE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22DD391F2D618E009C2BE1 /* ViewController.swift */; };
 		4C22DD3D1F2D618E009C2BE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C22DD3B1F2D618E009C2BE1 /* Main.storyboard */; };
 		4C22DD3F1F2D618E009C2BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C22DD3E1F2D618E009C2BE1 /* Assets.xcassets */; };
 		4C22DD421F2D618E009C2BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C22DD401F2D618E009C2BE1 /* LaunchScreen.storyboard */; };
+		4C52772B1F44588F00FFAC3D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52772A1F44588F00FFAC3D /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C21B5051F4673470035CFFD /* Races.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Races.swift; sourceTree = "<group>"; };
+		4C21B5271F49A5330035CFFD /* RaceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceViewCell.swift; sourceTree = "<group>"; };
+		4C21B5291F4B72C70035CFFD /* socks.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = socks.jpeg; sourceTree = "<group>"; };
 		4C22DD341F2D618E009C2BE1 /* RaceDayCountDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaceDayCountDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C22DD371F2D618E009C2BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C22DD391F2D618E009C2BE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,7 @@
 		4C22DD3E1F2D618E009C2BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C22DD411F2D618E009C2BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C22DD431F2D618E009C2BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C52772A1F44588F00FFAC3D /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +64,14 @@
 			children = (
 				4C22DD371F2D618E009C2BE1 /* AppDelegate.swift */,
 				4C22DD391F2D618E009C2BE1 /* ViewController.swift */,
+				4C52772A1F44588F00FFAC3D /* AddViewController.swift */,
 				4C22DD3B1F2D618E009C2BE1 /* Main.storyboard */,
 				4C22DD3E1F2D618E009C2BE1 /* Assets.xcassets */,
+				4C21B5291F4B72C70035CFFD /* socks.jpeg */,
 				4C22DD401F2D618E009C2BE1 /* LaunchScreen.storyboard */,
 				4C22DD431F2D618E009C2BE1 /* Info.plist */,
+				4C21B5051F4673470035CFFD /* Races.swift */,
+				4C21B5271F49A5330035CFFD /* RaceViewCell.swift */,
 			);
 			path = RaceDayCountDown;
 			sourceTree = "<group>";
@@ -125,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C22DD421F2D618E009C2BE1 /* LaunchScreen.storyboard in Resources */,
+				4C21B52A1F4B72C70035CFFD /* socks.jpeg in Resources */,
 				4C22DD3F1F2D618E009C2BE1 /* Assets.xcassets in Resources */,
 				4C22DD3D1F2D618E009C2BE1 /* Main.storyboard in Resources */,
 			);
@@ -137,8 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C21B5281F49A5330035CFFD /* RaceViewCell.swift in Sources */,
+				4C21B5061F4673470035CFFD /* Races.swift in Sources */,
 				4C22DD3A1F2D618E009C2BE1 /* ViewController.swift in Sources */,
 				4C22DD381F2D618E009C2BE1 /* AppDelegate.swift in Sources */,
+				4C52772B1F44588F00FFAC3D /* AddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +318,7 @@
 				4C22DD481F2D618E009C2BE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
