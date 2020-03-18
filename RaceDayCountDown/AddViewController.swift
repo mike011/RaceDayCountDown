@@ -44,6 +44,11 @@ class AddViewController: UIViewController {
         races.add(race: name!, day: datePicker.date)
         races.save()
         createNotifications()
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 
     func createDate(day: Int) -> DateComponents {
