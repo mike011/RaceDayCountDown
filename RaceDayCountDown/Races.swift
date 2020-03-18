@@ -15,9 +15,8 @@ struct PropertyKey {
 }
 
 class RaceInfo: NSObject, NSCoding {
-
-    let race : String
-    let day : Date
+    let race: String
+    let day: Date
 
     required convenience init?(coder aDecoder: NSCoder) {
         guard let race = aDecoder.decodeObject(forKey: PropertyKey.race) as? String else {
@@ -33,7 +32,8 @@ class RaceInfo: NSObject, NSCoding {
         self.day = day
     }
 
-    //MARK: NSCoding
+    // MARK: NSCoding
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(race, forKey: PropertyKey.race)
         aCoder.encode(day, forKey: PropertyKey.day)
@@ -47,14 +47,14 @@ class Races {
     var races = [RaceInfo]()
 
     init() {
-        races = load()!
+        self.races = load()!
     }
 
-    func add(race: String , day: Date) {
+    func add(race: String, day: Date) {
         races.append(RaceInfo(race: race, day: day))
     }
 
-    func remove(at : Int) {
+    func remove(at: Int) {
         races.remove(at: at)
     }
 
@@ -67,7 +67,7 @@ class Races {
     }
 
     func save() {
-        races = races.sorted{ $0.day < $1.day }
+        races = races.sorted { $0.day < $1.day }
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(races, toFile: RaceInfo.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Races successfully saved.", log: OSLog.default, type: .debug)

@@ -6,14 +6,13 @@
 //  Copyright © 2017 charland. All rights reserved.
 //
 
-import UIKit
 import os.log
+import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var table: UITableView!
+    @IBOutlet var table: UITableView!
     var races = Races()
-   
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -47,41 +46,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.day.text = "\(String(describing: diff.day!)) days to go"
         } else if days == 0 {
             var stringHours = "hour"
-            if(diff.hour! > 1) {
+            if diff.hour! > 1 {
                 stringHours += "s"
             }
             var stringMinutes = "minutes"
-            if(diff.minute! > 1) {
+            if diff.minute! > 1 {
                 stringMinutes += "s"
             }
             cell.day.text = "\(String(describing: diff.hour!)) \(stringHours) \(String(describing: diff.minute!)) \(stringMinutes)"
         } else if days < 3 {
             var stringDays = "day"
-            if(days > 1) {
+            if days > 1 {
                 stringDays += "s"
             }
             var stringHours = "hour"
-            if(diff.hour! > 1) {
+            if diff.hour! > 1 {
                 stringHours += "s"
             }
             var stringMinutes = "minutes"
-            if(diff.minute! > 1) {
+            if diff.minute! > 1 {
                 stringMinutes += "s"
             }
             cell.day.text = "\(String(describing: diff.day!)) \(stringDays) \(String(describing: diff.hour!)) \(stringHours) \(String(describing: diff.minute!)) \(stringMinutes)"
         } else {
             var stringHours = "hour"
-            if(diff.hour! > 1) {
+            if diff.hour! > 1 {
                 stringHours += "s"
             }
             cell.day.text = "\(String(describing: diff.day!)) days \(String(describing: diff.hour!)) \(stringHours)"
-
         }
 
         return cell
     }
 
-    func deleteRace(_ indexPath : IndexPath) {
+    func deleteRace(_ indexPath: IndexPath) {
         races.remove(at: indexPath.row)
         table.beginUpdates()
         table.deleteRows(at: [indexPath], with: .automatic)
@@ -90,4 +88,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.reloadData()
     }
 }
-

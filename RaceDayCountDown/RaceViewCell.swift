@@ -6,12 +6,12 @@
 //  Copyright © 2017 charland. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
 class RaceViewCell: UITableViewCell {
-    @IBOutlet weak var race: UILabel!
-    @IBOutlet weak var day: UILabel!
+    @IBOutlet var race: UILabel!
+    @IBOutlet var day: UILabel!
     var view: ViewController!
     var indexPath: IndexPath!
 
@@ -22,12 +22,13 @@ class RaceViewCell: UITableViewCell {
         view.present(myVC, animated: true, completion: nil)
         deleteRace()
     }
+
     @IBAction func deleteButton(_ sender: Any) {
         deleteRace()
     }
 
     func deleteRace() {
-        AddViewController.removeNotifications(name: race.description);
+        AddViewController.removeNotifications(name: race.description)
         view.deleteRace(indexPath)
     }
 }

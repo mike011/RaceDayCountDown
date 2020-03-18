@@ -6,17 +6,16 @@
 //  Copyright © 2017 charland. All rights reserved.
 //
 
-import UIKit
 import os.log
+import UIKit
 import UserNotifications
 
 // delete nofications
 class AddViewController: UIViewController {
-
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var raceName: UITextField!
+    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var raceName: UITextField!
     var raceInfo: RaceInfo!
-    public static var intervals = [3,10,25]
+    public static var intervals = [3, 10, 25]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +33,10 @@ class AddViewController: UIViewController {
 
     @IBAction func addRace(_ sender: Any) {
         let name = raceName.text
-        guard (name?.characters.count)! > 0 else {
-            let alert = UIAlertController(title: "Alert", message: "Name Can't Be Empty", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        guard (name?.count)! > 0 else {
+            let alert = UIAlertController(title: "Alert", message: "Name Can't Be Empty", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+            present(alert, animated: true, completion: nil)
             return
         }
 
@@ -47,28 +46,27 @@ class AddViewController: UIViewController {
         createNotifications()
     }
 
-    func createDate(day : Int) -> DateComponents {
+    func createDate(day: Int) -> DateComponents {
         var date = DateComponents()
         date.day = day
         return date
     }
 
     func createNotifications() {
-
         let content = UNMutableNotificationContent()
         content.title = raceName.text!
         content.body = "Are you ready?"
         addNotification(content, AddViewController.intervals)
     }
 
-    func addNotification(_ content: UNMutableNotificationContent, _ befores : [Int]) {
+    func addNotification(_ content: UNMutableNotificationContent, _ befores: [Int]) {
         let center = UNUserNotificationCenter.current()
-        center.getNotificationSettings { (settings) in
+        center.getNotificationSettings { settings in
             if settings.authorizationStatus == .authorized {
                 self.scheduleNotifications(content, befores)
             } else {
                 // User has not given permissions
-                center.requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { (granted, error) in
+                center.requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { granted, error in
                     if let error = error {
                         print(error)
                     } else if granted {
@@ -88,7 +86,7 @@ class AddViewController: UIViewController {
         scheduleNotification(content, AddViewController.timedNotifcationIdentifier + raceName.description + String(10), trigger)
     }
 
-    func scheduleNotifications(_ content: UNMutableNotificationContent, _ befores : [Int]) {
+    func scheduleNotifications(_ content: UNMutableNotificationContent, _ befores: [Int]) {
         triggerCheck(content)
         for before in befores {
             scheduleTrigger(content, before)
@@ -101,12 +99,11 @@ class AddViewController: UIViewController {
         return !isZero && !isNegative
     }
 
-    static func getTriggerName(name: String, _ before : Int) -> String {
+    static func getTriggerName(name: String, _ before: Int) -> String {
         return timedNotifcationIdentifier + name + String(before)
     }
 
     func scheduleTrigger(_ content: UNMutableNotificationContent, _ before: Int) {
-
         content.body += "Only \(before) days left to the race!"
         let daysBefore3 = Calendar.current.date(byAdding: .day, value: -before, to: datePicker.date)
 
@@ -118,18 +115,18 @@ class AddViewController: UIViewController {
         }
     }
 
-    func scheduleNotification(_ content: UNMutableNotificationContent, _ name : String, _ trigger : UNNotificationTrigger) {
+    func scheduleNotification(_ content: UNMutableNotificationContent, _ name: String, _ trigger: UNNotificationTrigger) {
         let url = Bundle.main.url(forResource: "socks", withExtension: "jpeg")!
-        let imageAttachement  = try! UNNotificationAttachment(identifier: timerGraphic, url: url, options: nil)
+        let imageAttachement = try! UNNotificationAttachment(identifier: timerGraphic, url: url, options: nil)
         content.attachments.append(imageAttachement)
 
         let notificationRequest = UNNotificationRequest(identifier: name, content: content, trigger: trigger)
         let center = UNUserNotificationCenter.current()
-        center.add(notificationRequest) { (error) in
+        center.add(notificationRequest) { error in
             if let error = error {
                 print(error)
             } else {
-                print ("Notification scheduled")
+                print("Notification scheduled")
             }
         }
     }
