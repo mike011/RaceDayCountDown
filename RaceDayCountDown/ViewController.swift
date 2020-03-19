@@ -17,9 +17,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        races = Races()
+        table.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,15 +32,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RaceViewCell
         cell.view = self
-        cell.race.text = raceInfo.race
+        cell.race.text = raceInfo.raceName
         cell.indexPath = indexPath
 
-        let diff = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(), to: raceInfo.day)
+        let diff = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(), to: raceInfo.raceDay)
         let days = diff.day!
         if days < 0 || diff.minute! < 0 {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM dd, yyyy"
-            cell.day.text = dateFormatter.string(from: raceInfo.day)
+            cell.day.text = dateFormatter.string(from: raceInfo.raceDay)
             cell.day.textColor = UIColor.green
             cell.race.textColor = UIColor.green
         } else if days > 10 {

@@ -28,7 +28,6 @@ class RaceViewCell: UITableViewCell {
     }
 
     func deleteRace() {
-        AddViewController.removeNotifications(name: race.description)
         view.deleteRace(indexPath)
     }
 }

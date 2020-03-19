@@ -104,7 +104,7 @@
                                 </constraints>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <segue destination="Xwu-JQ-Ggf" kind="presentation" id="YtT-EM-6fW"/>
+                                    <segue destination="Xwu-JQ-Ggf" kind="presentation" modalPresentationStyle="fullScreen" id="YtT-EM-6fW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,7 +136,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ivH-sF-l3Y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Ff-Ms-bxH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Race Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiQ-o4-3zo">
@@ -169,6 +169,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KyE-cJ-QvM"/>
                     <connections>
                         <outlet property="datePicker" destination="JhO-Iv-0ob" id="GS4-73-eU4"/>
                         <outlet property="raceName" destination="JiQ-o4-3zo" id="9Hw-Jq-Ghp"/>

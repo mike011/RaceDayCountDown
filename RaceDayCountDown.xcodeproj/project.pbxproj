@@ -16,6 +16,9 @@
 		4C22DD3F1F2D618E009C2BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C22DD3E1F2D618E009C2BE1 /* Assets.xcassets */; };
 		4C22DD421F2D618E009C2BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C22DD401F2D618E009C2BE1 /* LaunchScreen.storyboard */; };
 		4C52772B1F44588F00FFAC3D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52772A1F44588F00FFAC3D /* AddViewController.swift */; };
+		4CB3BEC32422F40C00A09F9D /* RaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3BEC22422F40C00A09F9D /* RaceInfo.swift */; };
+		4CB3BEC52422F45800A09F9D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3BEC42422F45800A09F9D /* Notification.swift */; };
+		4CB3BEC72422F4AA00A09F9D /* PropertyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3BEC62422F4AA00A09F9D /* PropertyKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		4C22DD411F2D618E009C2BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C22DD431F2D618E009C2BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C52772A1F44588F00FFAC3D /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		4CB3BEC22422F40C00A09F9D /* RaceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceInfo.swift; sourceTree = "<group>"; };
+		4CB3BEC42422F45800A09F9D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		4CB3BEC62422F4AA00A09F9D /* PropertyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,16 +68,19 @@
 		4C22DD361F2D618E009C2BE1 /* RaceDayCountDown */ = {
 			isa = PBXGroup;
 			children = (
-				4C22DD371F2D618E009C2BE1 /* AppDelegate.swift */,
-				4C22DD391F2D618E009C2BE1 /* ViewController.swift */,
 				4C52772A1F44588F00FFAC3D /* AddViewController.swift */,
-				4C22DD3B1F2D618E009C2BE1 /* Main.storyboard */,
+				4C22DD371F2D618E009C2BE1 /* AppDelegate.swift */,
 				4C22DD3E1F2D618E009C2BE1 /* Assets.xcassets */,
-				4C21B5291F4B72C70035CFFD /* socks.jpeg */,
-				4C22DD401F2D618E009C2BE1 /* LaunchScreen.storyboard */,
 				4C22DD431F2D618E009C2BE1 /* Info.plist */,
+				4C22DD401F2D618E009C2BE1 /* LaunchScreen.storyboard */,
+				4C22DD3B1F2D618E009C2BE1 /* Main.storyboard */,
+				4CB3BEC42422F45800A09F9D /* Notification.swift */,
+				4CB3BEC62422F4AA00A09F9D /* PropertyKey.swift */,
+				4CB3BEC22422F40C00A09F9D /* RaceInfo.swift */,
 				4C21B5051F4673470035CFFD /* Races.swift */,
 				4C21B5271F49A5330035CFFD /* RaceViewCell.swift */,
+				4C21B5291F4B72C70035CFFD /* socks.jpeg */,
+				4C22DD391F2D618E009C2BE1 /* ViewController.swift */,
 			);
 			path = RaceDayCountDown;
 			sourceTree = "<group>";
@@ -152,7 +161,10 @@
 			files = (
 				4C21B5281F49A5330035CFFD /* RaceViewCell.swift in Sources */,
 				4C21B5061F4673470035CFFD /* Races.swift in Sources */,
+				4CB3BEC72422F4AA00A09F9D /* PropertyKey.swift in Sources */,
+				4CB3BEC32422F40C00A09F9D /* RaceInfo.swift in Sources */,
 				4C22DD3A1F2D618E009C2BE1 /* ViewController.swift in Sources */,
+				4CB3BEC52422F45800A09F9D /* Notification.swift in Sources */,
 				4C22DD381F2D618E009C2BE1 /* AppDelegate.swift in Sources */,
 				4C52772B1F44588F00FFAC3D /* AddViewController.swift in Sources */,
 			);
@@ -230,7 +242,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -284,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
