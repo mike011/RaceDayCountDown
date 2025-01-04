@@ -13,22 +13,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var table: UITableView!
     var races = Races()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        races = Races()
-        table.reloadData()
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return races.races.count
+        print(races.raceInfos.count)
+        return races.raceInfos.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let raceInfo = races.races[indexPath.row]
+        let raceInfo = races.raceInfos[indexPath.row]
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RaceViewCell
         cell.view = self
@@ -88,4 +79,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         races.save()
         table.reloadData()
     }
+}
+
+#Preview {
+    createViewController()
+}
+
+@MainActor
+func createViewController() -> ViewController {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+    vc.races.add(race: RaceInfo(race: "Caledon Crusher", day: getDate(from: "2025-04-16")))
+    vc.races.add(race: RaceInfo(race: "The Bad Thing", day: getDate(from: "2023-10-21")))
+    vc.loadViewIfNeeded()
+    return vc
+}
+
+private func getDate(from string: String) -> Date {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let dateString = string
+    let date = dateFormatter.date(from: dateString)
+    return date!
 }

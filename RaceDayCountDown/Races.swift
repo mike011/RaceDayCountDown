@@ -10,19 +10,19 @@ import Foundation
 import os.log
 
 class Races {
-    var races = [RaceInfo]()
+    var raceInfos = [RaceInfo]()
 
     init() {
-        self.races = load()!
+        self.raceInfos = load()!
     }
 
     func add(race: RaceInfo) {
-        races.append(race)
+        raceInfos.append(race)
     }
 
     func remove(at: Int) {
-        races[at].removeNotifications()
-        races.remove(at: at)
+        raceInfos[at].removeNotifications()
+        raceInfos.remove(at: at)
     }
 
     private func load() -> [RaceInfo]? {
@@ -34,8 +34,8 @@ class Races {
     }
 
     func save() {
-        races = races.sorted { $0.raceDay < $1.raceDay }
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(races, toFile: RaceInfo.ArchiveURL.path)
+        raceInfos = raceInfos.sorted { $0.raceDay < $1.raceDay }
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(raceInfos, toFile: RaceInfo.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Races successfully saved.", log: OSLog.default, type: .debug)
         } else {

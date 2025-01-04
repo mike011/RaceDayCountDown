@@ -52,3 +52,15 @@ class AddViewController: UIViewController {
         return date
     }
 }
+
+#Preview {
+    createAddViewController()
+}
+
+@MainActor
+func createAddViewController() -> AddViewController {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+    vc.loadViewIfNeeded()
+    return vc
+}
